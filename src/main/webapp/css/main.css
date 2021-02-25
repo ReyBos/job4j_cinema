@@ -33,7 +33,7 @@
 
 .row-seats p,
 .row-seats p,
-.info-column p {
+.info-seat p {
     margin: 0;
 }
 
@@ -64,13 +64,13 @@ input[type="checkbox"]:disabled + label {
     color: #ff8a80;
 }
 
-.info-column {
+.info-seat {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.info-column .color-seat-row {
+.info-seat .color-seat-row {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
@@ -111,7 +111,7 @@ input[type="checkbox"]:disabled + label {
     background-color: #ff8a80;
 }
 
-.info-column-content {
+.info-seat-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -3,13 +3,13 @@ let count = 0;
 let sum = 0;
 $(":checkbox").change(function() {
     let row = $(this).data("row");
-    let column = $(this).data("column");
+    let seat = $(this).data("seat");
     let price = $(this).data("price");
-    let key = String(row) + String(column);
+    let key = String(row) + String(seat);
     if (this.checked) {
         let ticket = {
             "row": row,
-            "column": column,
+            "seat": seat,
             "price": price
         }
         tickets.set(key, ticket);
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let value of tickets.values()) {
             orderText +=
                 "<tr>" +
-                    "<td>Ряд " + value.row + " место " + value.column + "</td>" +
+                    "<td>Ряд " + value.row + " место " + value.seat + "</td>" +
                     "<td class='right-align'>" + value.price + "</td>" +
                 "</tr>";
         }

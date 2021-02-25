@@ -59,7 +59,7 @@
 
 <h4><a name="scheme">Схема БД</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
 <p align="center">
-  <!--<img src="images/6.png" height="400" title="схема БД">-->
+  <img src="images/1.png" height="400" title="схема БД">
 </p>
 
 
