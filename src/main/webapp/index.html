@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css"/>
+    <title>Cinema</title>
+</head>
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div class="container">
+    <div class="row cinema-container">
+        <div class="col s9">
+            <h5 class="center-align page-title">
+                бронирование мест на сеанс
+            </h5>
+            <div class="cinema">
+                <div class="display">
+                    <span>экран</span>
+                </div>
+                <div class="seats">
+                    <div class="row">
+                        <div class="col s2 row-title"><p>1 ряд</p></div>
+                        <div class="col s8 row-seats">
+                            <p>
+                                <input type="checkbox" id="seat11" data-row="1" data-column="1" data-price="200">
+                                <label for="seat11">1</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="seat12" data-row="1" data-column="2" data-price="200">
+                                <label for="seat12">2</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="seat13" data-row="1" data-column="3" data-price="200">
+                                <label for="seat13">3</label>
+                            </p>
+                        </div>
+                        <div class="col s2 row-title"><p>1 ряд</p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col s2 row-title"><p>2 ряд</p></div>
+                        <div class="col s8 row-seats">
+                            <p>
+                                <input type="checkbox" id="seat21" data-row="2" data-column="1" data-price="200">
+                                <label for="seat21">1</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="seat22" disabled data-row="2" data-column="2" data-price="200">
+                                <label for="seat22">2</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="seat23" data-row="2" data-column="3" data-price="200">
+                                <label for="seat23">3</label>
+                            </p>
+                        </div>
+                        <div class="col s2 row-title"><p>2 ряд</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s3 info-column">
+            <h5 class="center-align page-title">
+                информация
+            </h5>
+            <div class="info-column-content">
+                <div class="color-description">
+                    <p class="color-seat-row"><span class="color-seat free"></span> - свободно</p>
+                    <p class="color-seat-row"><span class="color-seat choose"></span> - выбрано</p>
+                    <p class="color-seat-row"><span class="color-seat busy"></span> - занято</p>
+                </div>
+                <div class="order-description">
+                    <p>Выбрано мест: <span class="js-order-seat-count">0</span></p>
+                    <p>К оплате: <span class="js-order-sum">0</span></p>
+                </div>
+            </div>
+            <div class="center-align">
+                <button type="button" class="btn btn-success js-open-modal" data-modal="1">Оплатить</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-custom" data-modal="1">
+        <!--   Svg иконка для закрытия окна  -->
+        <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+        <div class="js-modal-content">
+            <p class="modal__title">Ваш заказ:</p>
+            <table class="modal-table">
+                <thead>
+                <tr>
+                    <th>Билет</th>
+                    <th class="right-align">Стоимость</th>
+                </tr>
+                </thead>
+                <tbody class="js-order-info">
+                </tbody>
+            </table>
+            <p class="modal__title">Ваши данные:</p>
+            <div class="row customer-info">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="name" type="text" class="validate">
+                    <label for="name">ФИО</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="phone" type="tel" class="validate">
+                    <label for="phone">Телефон</label>
+                </div>
+                <div class="input-field col s12 right-align">
+                    <button type="button" class="btn btn-success js-order-pay">Оплатить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-custom" data-modal="2">
+        <!--   Svg иконка для закрытия окна  -->
+        <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+        <p class="">Не выбран ни один билет для покупки!</p>
+    </div>
+    <div class="overlay js-overlay-modal"></div>
+</div>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/main.js">
+
+</script>
+</body>
+</html>
