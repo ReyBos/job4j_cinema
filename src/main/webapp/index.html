@@ -29,42 +29,24 @@
                     <span>экран</span>
                 </div>
                 <div class="seats js-seats">
-                    <div class="row">
-                        <div class="col s2 row-title"><p>1 ряд</p></div>
-                        <div class="col s8 row-seats">
-                            <p>
-                                <input class="js-seat-checkbox" type="checkbox" id="seat11" data-row="1" data-seat="1" data-price="200">
-                                <label for="seat11">1</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="seat12" data-row="1" data-seat="2" data-price="200">
-                                <label for="seat12">2</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="seat13" data-row="1" data-seat="3" data-price="200">
-                                <label for="seat13">3</label>
-                            </p>
-                        </div>
-                        <div class="col s2 row-title"><p>1 ряд</p></div>
-                    </div>
-                    <div class="row">
-                        <div class="col s2 row-title"><p>2 ряд</p></div>
-                        <div class="col s8 row-seats">
-                            <p>
-                                <input type="checkbox" id="seat21" data-row="2" data-seat="1" data-price="200">
-                                <label for="seat21">1</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="seat22" disabled data-row="2" data-seat="2" data-price="200">
-                                <label for="seat22">2</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="seat23" data-row="2" data-seat="3" data-price="200">
-                                <label for="seat23">3</label>
-                            </p>
-                        </div>
-                        <div class="col s2 row-title"><p>2 ряд</p></div>
-                    </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col s2 row-title"><p>2 ряд</p></div>-->
+<!--                        <div class="col s8 row-seats">-->
+<!--                            <p>-->
+<!--                                <input type="checkbox" id="seat21" data-row="2" data-seat="1" data-price="200">-->
+<!--                                <label for="seat21">1</label>-->
+<!--                            </p>-->
+<!--                            <p>-->
+<!--                                <input type="checkbox" id="seat22" disabled data-row="2" data-seat="2" data-price="200">-->
+<!--                                <label for="seat22">2</label>-->
+<!--                            </p>-->
+<!--                            <p>-->
+<!--                                <input type="checkbox" id="seat23" data-row="2" data-seat="3" data-price="200">-->
+<!--                                <label for="seat23">3</label>-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                        <div class="col s2 row-title"><p>2 ряд</p></div>-->
+<!--                    </div>-->
                 </div>
                 <div class="center-align">
                     <button type="button" class="btn btn-success refresh-button" onclick="getFilmSessionInfo();">Обновить</button> Последнее обновление: <span class="js-refresh-time"></span>
@@ -117,13 +99,16 @@
             <div class="row customer-info">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="name" type="text" class="validate">
+                    <input id="name" type="text" class="validate js-user-name">
                     <label for="name">ФИО</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">phone</i>
-                    <input id="phone" type="tel" class="validate">
+                    <input id="phone" type="tel" class="validate js-user-phone">
                     <label for="phone">Телефон</label>
+                </div>
+                <div class="input-field col s12">
+                    <p class="error js-error"></p>
                 </div>
                 <div class="input-field col s12 right-align">
                     <button type="button" class="btn btn-success js-order-pay">Оплатить</button>
@@ -141,5 +126,6 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/film.session.info.js"></script>
+<script type="text/javascript" src="js/order.pay.js"></script>
 </body>
 </html>

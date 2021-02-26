@@ -7,6 +7,18 @@ public class Account {
     private String name;
     private String phone;
 
+    public Account(String name, String phone) {
+        this.id = 0;
+        this.name = name;
+        this.phone = phone;
+    }
+
+    public Account(int id, String name, String phone) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+    }
+
     public int getId() {
         return id;
     }

@@ -13,4 +13,13 @@
     <servlet-name>FilmSessionServlet</servlet-name>
     <url-pattern>/film/session</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>TicketBuyServlet</servlet-name>
+    <servlet-class>ru.job4j.cinema.servlet.TicketBuyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TicketBuyServlet</servlet-name>
+    <url-pattern>/ticket/buy</url-pattern>
+  </servlet-mapping>
 </web-app>

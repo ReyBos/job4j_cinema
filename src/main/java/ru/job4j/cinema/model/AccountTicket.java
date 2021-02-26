@@ -7,6 +7,10 @@ public class AccountTicket {
     private int accountID;
     private int ticketId;
 
+    public AccountTicket(int ticketId) {
+        this.ticketId = ticketId;
+    }
+
     public int getId() {
         return id;
     }

@@ -156,6 +156,11 @@ input[type="checkbox"]:disabled + label {
     font-weight: 500;
 }
 
+.input-field .error {
+    margin: 0;
+    color: red;
+}
+
 /* Стили для подложки */
 .overlay {
     /* Скрываем подложку  */

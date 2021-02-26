@@ -5,12 +5,14 @@ $(".js-seats").on("change", ".js-seat-checkbox", function() {
     let row = $(this).data("row");
     let seat = $(this).data("seat");
     let price = $(this).data("price");
+    let ticketID = $(this).data("ticket-id");
     let key = String(row) + String(seat);
     if (this.checked) {
         let ticket = {
             "row": row,
             "seat": seat,
-            "price": price
+            "price": price,
+            "ticketID": ticketID
         }
         tickets.set(key, ticket);
         count++;
@@ -22,23 +24,6 @@ $(".js-seats").on("change", ".js-seat-checkbox", function() {
     }
     $(".js-order-seat-count").text(count);
     $(".js-order-sum").text(sum);
-});
-
-$('.js-order-pay').click(function () {
-    let loader =
-        '   <p class="modal__title-pay">Пожалуйста подождите, идет обработка...</p>' +
-        '   <div class="preloader-wrapper active">' +
-        '    <div class="spinner-layer spinner-red-only">' +
-        '      <div class="circle-clipper left">' +
-        '        <div class="circle"></div>' +
-        '      </div><div class="gap-patch">' +
-        '        <div class="circle"></div>' +
-        '      </div><div class="circle-clipper right">' +
-        '        <div class="circle"></div>' +
-        '      </div>' +
-        '    </div>' +
-        '  </div>';
-    $(".js-modal-content").html(loader);
 });
 
 !function(e){"function"!=typeof e.matches&&(e.matches=e.msMatchesSelector||e.mozMatchesSelector||e.webkitMatchesSelector||function(e){for(var t=this,o=(t.document||t.ownerDocument).querySelectorAll(e),n=0;o[n]&&o[n]!==t;)++n;return Boolean(o[n])}),"function"!=typeof e.closest&&(e.closest=function(e){for(var t=this;t&&1===t.nodeType;){if(t.matches(e))return t;t=t.parentNode}return null})}(window.Element.prototype);
