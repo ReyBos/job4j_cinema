@@ -54,7 +54,7 @@ public class PsqlStore implements Store {
 
     @Override
     public Optional<FilmSession> findFilmSessionById(int id) {
-        String sql = "select * from film_session where id = ?";
+        String sql = "SELECT * FROM film_session WHERE id = ?";
         FilmSession filmSession = null;
         try (Connection cn = pool.getConnection();
              PreparedStatement ps =  cn.prepareStatement(sql)
@@ -78,7 +78,7 @@ public class PsqlStore implements Store {
 
     @Override
     public Optional<Hall> findHallById(int id) {
-        String sql = "select * from hall where id = ?";
+        String sql = "SELECT * FROM hall WHERE id = ?";
         Hall hall = null;
         try (Connection cn = pool.getConnection();
              PreparedStatement ps =  cn.prepareStatement(sql)
@@ -100,7 +100,12 @@ public class PsqlStore implements Store {
 
     @Override
     public Optional<List<Ticket>> findTicketsByFilmSessionId(int id) {
-        String sql = "select * from ticket where film_session_id = ?";
+        String sql = "SELECT ticket.*, seat.row, seat.seat, account_ticket.account_id "
+                + " FROM ticket "
+                + " LEFT JOIN seat ON ticket.seat_id = seat.id "
+                + " LEFT JOIN account_ticket ON ticket.id = account_ticket.ticket_id "
+                + " WHERE film_session_id = ? "
+                + " ORDER BY row ASC, seat ASC";
         List<Ticket> tickets = new ArrayList<>();
         try (Connection cn = pool.getConnection();
              PreparedStatement ps =  cn.prepareStatement(sql)
@@ -112,7 +117,10 @@ public class PsqlStore implements Store {
                             resultSet.getInt("id"),
                             resultSet.getDouble("price"),
                             resultSet.getInt("film_session_id"),
-                            resultSet.getInt("seat_id")
+                            resultSet.getInt("seat_id"),
+                            resultSet.getInt("row"),
+                            resultSet.getInt("seat"),
+                            resultSet.getInt("account_id")
                     ));
                 }
             }

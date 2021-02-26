@@ -1,4 +1,4 @@
-INSERT INTO hall(name) VALUES ('Зал 1');
+INSERT INTO hall(name) VALUES ('1');
 INSERT INTO film_session(name, date, hall_id) VALUES ('Очень страшное кино', '2021-02-25 20:00:00', 1);
 
 INSERT INTO seat(row, seat, hall_id)

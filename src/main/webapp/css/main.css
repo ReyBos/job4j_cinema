@@ -21,6 +21,14 @@
     border-radius: 12px;
 }
 
+.seats {
+    margin-bottom: 20px;
+}
+
+.refresh-button {
+    margin-right: 15px;
+}
+
 .seats .row {
     margin: 0;
 }
@@ -134,6 +142,18 @@ input[type="checkbox"]:disabled + label {
 
 .customer-info .input-field {
     margin-top: 0;
+}
+
+.film-session-info {
+    margin-bottom: 15px;
+}
+
+.film-session-info .film-session-row {
+    margin-bottom: 5px;
+}
+
+.film-session-row span {
+    font-weight: 500;
 }
 
 /* Стили для подложки */

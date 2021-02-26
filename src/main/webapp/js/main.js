@@ -1,7 +1,7 @@
 let tickets = new Map();
 let count = 0;
 let sum = 0;
-$(":checkbox").change(function() {
+$(".js-seats").on("change", ".js-seat-checkbox", function() {
     let row = $(this).data("row");
     let seat = $(this).data("seat");
     let price = $(this).data("price");

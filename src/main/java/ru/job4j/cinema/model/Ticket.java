@@ -7,6 +7,9 @@ public class Ticket {
     private double price;
     private int filmSessionID;
     private int seatID;
+    private int row;
+    private int seat;
+    private int accountID;
 
     public Ticket(int id) {
         this.id = id;
@@ -17,6 +20,18 @@ public class Ticket {
         this.price = price;
         this.filmSessionID = filmSessionID;
         this.seatID = seatID;
+    }
+
+    public Ticket(
+            int id, double price, int filmSessionID, int seatID, int row, int seat, int accountID
+    ) {
+        this.id = id;
+        this.price = price;
+        this.filmSessionID = filmSessionID;
+        this.seatID = seatID;
+        this.row = row;
+        this.seat = seat;
+        this.accountID = accountID;
     }
 
     public int getId() {
