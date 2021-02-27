@@ -5,33 +5,33 @@ import java.util.Objects;
 public class Ticket {
     private int id;
     private double price;
-    private int filmSessionID;
-    private int seatID;
+    private int filmSessionId;
+    private int seatId;
     private int row;
     private int seat;
-    private int accountID;
+    private int accountId;
 
     public Ticket(int id) {
         this.id = id;
     }
 
-    public Ticket(int id, double price, int filmSessionID, int seatID) {
+    public Ticket(int id, double price, int filmSessionId, int seatId) {
         this.id = id;
         this.price = price;
-        this.filmSessionID = filmSessionID;
-        this.seatID = seatID;
+        this.filmSessionId = filmSessionId;
+        this.seatId = seatId;
     }
 
     public Ticket(
-            int id, double price, int filmSessionID, int seatID, int row, int seat, int accountID
+            int id, double price, int filmSessionId, int seatId, int row, int seat, int accountId
     ) {
         this.id = id;
         this.price = price;
-        this.filmSessionID = filmSessionID;
-        this.seatID = seatID;
+        this.filmSessionId = filmSessionId;
+        this.seatId = seatId;
         this.row = row;
         this.seat = seat;
-        this.accountID = accountID;
+        this.accountId = accountId;
     }
 
     public int getId() {
@@ -50,20 +50,20 @@ public class Ticket {
         this.price = price;
     }
 
-    public int getFilmSessionID() {
-        return filmSessionID;
+    public int getFilmSessionId() {
+        return filmSessionId;
     }
 
-    public void setFilmSessionID(int filmSessionID) {
-        this.filmSessionID = filmSessionID;
+    public void setFilmSessionId(int filmSessionId) {
+        this.filmSessionId = filmSessionId;
     }
 
-    public int getSeatID() {
-        return seatID;
+    public int getSeatId() {
+        return seatId;
     }
 
-    public void setSeatID(int seatID) {
-        this.seatID = seatID;
+    public void setSeatId(int seatId) {
+        this.seatId = seatId;
     }
 
     @Override

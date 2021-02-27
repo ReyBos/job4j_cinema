@@ -6,7 +6,7 @@ public class Seat {
     private int id;
     private int row;
     private int seat;
-    private int hallID;
+    private int hallId;
 
     public int getId() {
         return id;
@@ -32,12 +32,12 @@ public class Seat {
         this.seat = seat;
     }
 
-    public int getHallID() {
-        return hallID;
+    public int getHallId() {
+        return hallId;
     }
 
-    public void setHallID(int hallID) {
-        this.hallID = hallID;
+    public void setHallId(int hallId) {
+        this.hallId = hallId;
     }
 
     @Override

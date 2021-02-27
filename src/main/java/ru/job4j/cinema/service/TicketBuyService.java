@@ -8,11 +8,12 @@ import ru.job4j.cinema.store.PsqlStore;
 import ru.job4j.cinema.store.Store;
 
 import java.util.List;
+import java.util.Optional;
 
 public class TicketBuyService {
     private static final Logger LOG = LoggerFactory.getLogger(PsqlStore.class.getName());
     private static final TicketBuyService INST = new TicketBuyService();
-    private Store store = PsqlStore.instOf();
+    private final Store store = PsqlStore.instOf();
 
     private TicketBuyService() { }
 
@@ -21,6 +22,16 @@ public class TicketBuyService {
     }
 
     public boolean buyTicket(Account account, List<AccountTicket> tickets) {
-        return false;
+        Optional<Account> accountDB = store.findAccountByPhone(account.getPhone());
+        if (accountDB.isPresent()) {
+            account = accountDB.get();
+        } else {
+            store.save(account);
+        }
+        for (AccountTicket accountTicket : tickets) {
+            accountTicket.setAccountId(account.getId());
+            store.save(accountTicket);
+        }
+        return true;
     }
 }

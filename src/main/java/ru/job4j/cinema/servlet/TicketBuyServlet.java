@@ -35,7 +35,7 @@ public class TicketBuyServlet extends HttpServlet {
         List<AccountTicket> tickets = new ArrayList<>();
         for (int i = 0; i < ticketsJson.size(); i++) {
             JsonObject ticket = ticketsJson.get(i).getAsJsonObject();
-            tickets.add(new AccountTicket(ticket.get("ticketID").getAsInt()));
+            tickets.add(new AccountTicket(ticket.get("ticketId").getAsInt()));
         }
         boolean rsl = service.buyTicket(account, tickets);
         resp.setCharacterEncoding("UTF-8");

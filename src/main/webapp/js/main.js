@@ -5,14 +5,14 @@ $(".js-seats").on("change", ".js-seat-checkbox", function() {
     let row = $(this).data("row");
     let seat = $(this).data("seat");
     let price = $(this).data("price");
-    let ticketID = $(this).data("ticket-id");
+    let ticketId = $(this).data("ticket-id");
     let key = String(row) + String(seat);
     if (this.checked) {
         let ticket = {
             "row": row,
             "seat": seat,
             "price": price,
-            "ticketID": ticketID
+            "ticketId": ticketId
         }
         tickets.set(key, ticket);
         count++;

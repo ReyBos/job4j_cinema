@@ -43,7 +43,7 @@ function drawSeats(allTickets) {
             rsl += '<div class="col s8 row-seats">';
         }
         rsl += '<p>';
-        rsl += '<input class="js-seat-checkbox" type="checkbox" id="seat' + String(item.row) + String(item.seat) + '" data-row="' + item.row + '" data-seat="' + item.seat + '" data-price="' + item.price + '" data-ticket-id="' + item.id + '" ' + (item.accountID !== 0 ? 'disabled' : '') + '>';
+        rsl += '<input class="js-seat-checkbox" type="checkbox" id="seat' + String(item.row) + String(item.seat) + '" data-row="' + item.row + '" data-seat="' + item.seat + '" data-price="' + item.price + '" data-ticket-id="' + item.id + '" ' + (item.accountId !== 0 ? 'disabled' : '') + '>';
         rsl += '<label for="seat' + String(item.row) + String(item.seat) + '">' + item.seat + '</label>';
         rsl += '</p>';
     });

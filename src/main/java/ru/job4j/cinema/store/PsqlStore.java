@@ -3,9 +3,7 @@ package ru.job4j.cinema.store;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.job4j.cinema.model.FilmSession;
-import ru.job4j.cinema.model.Hall;
-import ru.job4j.cinema.model.Ticket;
+import ru.job4j.cinema.model.*;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -128,5 +126,70 @@ public class PsqlStore implements Store {
             LOG.error("Error", e);
         }
         return tickets.size() == 0 ? Optional.empty() : Optional.of(tickets);
+    }
+
+    @Override
+    public Optional<Account> findAccountByPhone(String phone) {
+        String sql = "SELECT * FROM account WHERE phone = ?";
+        Account account = null;
+        try (Connection cn = pool.getConnection();
+             PreparedStatement ps =  cn.prepareStatement(sql)
+        ) {
+            ps.setString(1, phone);
+            try (ResultSet resultSet = ps.executeQuery()) {
+                while (resultSet.next()) {
+                    account = new Account(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name"),
+                            resultSet.getString("phone")
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            LOG.error("Error", e);
+        }
+        return account == null ? Optional.empty() : Optional.of(account);
+    }
+
+    @Override
+    public void save(Account account) {
+        String sql = "insert into account(name, phone) values (?, ?)";
+        try (Connection cn = pool.getConnection();
+             PreparedStatement ps =  cn.prepareStatement(
+                     sql, PreparedStatement.RETURN_GENERATED_KEYS
+             )
+        ) {
+            ps.setString(1, account.getName());
+            ps.setString(2, account.getPhone());
+            ps.execute();
+            try (ResultSet id = ps.getGeneratedKeys()) {
+                if (id.next()) {
+                    account.setId(id.getInt(1));
+                }
+            }
+        } catch (Exception e) {
+            LOG.error("Error", e);
+        }
+    }
+
+    @Override
+    public void save(AccountTicket accountTicket) {
+        String sql = "insert into account_ticket(account_id, ticket_id) values (?, ?)";
+        try (Connection cn = pool.getConnection();
+             PreparedStatement ps =  cn.prepareStatement(
+                     sql, PreparedStatement.RETURN_GENERATED_KEYS
+             )
+        ) {
+            ps.setInt(1, accountTicket.getAccountId());
+            ps.setInt(2, accountTicket.getTicketId());
+            ps.execute();
+            try (ResultSet id = ps.getGeneratedKeys()) {
+                if (id.next()) {
+                    accountTicket.setId(id.getInt(1));
+                }
+            }
+        } catch (Exception e) {
+            LOG.error("Error", e);
+        }
     }
 }

@@ -1,8 +1,6 @@
 package ru.job4j.cinema.store;
 
-import ru.job4j.cinema.model.FilmSession;
-import ru.job4j.cinema.model.Hall;
-import ru.job4j.cinema.model.Ticket;
+import ru.job4j.cinema.model.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,4 +11,10 @@ public interface Store {
     Optional<Hall> findHallById(int id);
 
     Optional<List<Ticket>> findTicketsByFilmSessionId(int id);
+
+    Optional<Account> findAccountByPhone(String phone);
+
+    void save(Account account);
+
+    void save(AccountTicket accountTicket);
 }

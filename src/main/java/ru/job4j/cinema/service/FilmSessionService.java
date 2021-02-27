@@ -18,7 +18,7 @@ import java.util.Optional;
 public class FilmSessionService {
     private static final Logger LOG = LoggerFactory.getLogger(PsqlStore.class.getName());
     private static final FilmSessionService INST = new FilmSessionService();
-    private Store store = PsqlStore.instOf();
+    private final Store store = PsqlStore.instOf();
 
     private FilmSessionService() { }
 
@@ -31,7 +31,7 @@ public class FilmSessionService {
         final Gson gson = new GsonBuilder().create();
         Optional<FilmSession> filmSessionOpt = store.findFilmSessionById(filmSessionId);
         FilmSession filmSession = checkOptional(filmSessionOpt, "Киносеанс не найден");
-        Optional<Hall> hallOpt = store.findHallById(filmSession.getHallID());
+        Optional<Hall> hallOpt = store.findHallById(filmSession.getHallId());
         Hall hall = checkOptional(hallOpt, "Зал не найден");
         Optional<List<Ticket>> ticketsOpt = store.findTicketsByFilmSessionId(filmSessionId);
         List<Ticket> tickets = checkOptional(ticketsOpt, "Билеты на сеанс не найдены");

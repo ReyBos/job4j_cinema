@@ -38,5 +38,5 @@ CREATE TABLE account_ticket (
     id SERIAL PRIMARY KEY,
     account_id INT REFERENCES account(id),
     ticket_id INT REFERENCES ticket(id),
-    UNIQUE (account_id, ticket_id)
+    UNIQUE (ticket_id)
 );

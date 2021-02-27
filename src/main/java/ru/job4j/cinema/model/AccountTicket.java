@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class AccountTicket {
     private int id;
-    private int accountID;
+    private int accountId;
     private int ticketId;
 
     public AccountTicket(int ticketId) {
@@ -15,8 +15,8 @@ public class AccountTicket {
         return id;
     }
 
-    public int getAccountID() {
-        return accountID;
+    public int getAccountId() {
+        return accountId;
     }
 
     public int getTicketId() {
@@ -27,8 +27,8 @@ public class AccountTicket {
         this.id = id;
     }
 
-    public void setAccountID(int accountID) {
-        this.accountID = accountID;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public void setTicketId(int ticketId) {

@@ -7,17 +7,17 @@ public class FilmSession {
     private int id;
     private String name;
     private Timestamp date;
-    private int hallID;
+    private int hallId;
 
     public FilmSession(int id) {
         this.id = id;
     }
 
-    public FilmSession(int id, String name, Timestamp date, int hallID) {
+    public FilmSession(int id, String name, Timestamp date, int hallId) {
         this.id = id;
         this.name = name;
         this.date = date;
-        this.hallID = hallID;
+        this.hallId = hallId;
     }
 
     public int getId() {
@@ -44,12 +44,12 @@ public class FilmSession {
         this.date = date;
     }
 
-    public int getHallID() {
-        return hallID;
+    public int getHallId() {
+        return hallId;
     }
 
-    public void setHallID(int hallID) {
-        this.hallID = hallID;
+    public void setHallId(int hallId) {
+        this.hallId = hallId;
     }
 
     @Override
