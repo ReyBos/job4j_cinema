@@ -192,4 +192,20 @@ public class PsqlStore implements Store {
             LOG.error("Error", e);
         }
     }
+
+    @Override
+    public void delete(Account account) {
+        if (account.getId() == 0) {
+            return;
+        }
+        String sql = "delete from account where id = ?";
+        try (Connection cn = pool.getConnection();
+             PreparedStatement ps =  cn.prepareStatement(sql)
+        ) {
+            ps.setInt(1, account.getId());
+            ps.execute();
+        } catch (Exception e) {
+            LOG.error("Error", e);
+        }
+    }
 }

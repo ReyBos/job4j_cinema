@@ -11,6 +11,12 @@ public class AccountTicket {
         this.ticketId = ticketId;
     }
 
+    public AccountTicket(int id, int accountId, int ticketId) {
+        this.id = id;
+        this.accountId = accountId;
+        this.ticketId = ticketId;
+    }
+
     public int getId() {
         return id;
     }

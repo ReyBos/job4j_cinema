@@ -17,4 +17,6 @@ public interface Store {
     void save(Account account);
 
     void save(AccountTicket accountTicket);
+
+    void delete(Account account);
 }
